@@ -2,6 +2,7 @@
 #include <stdlib.h>
 //#include "pila.h"
 #include "cola.h"
+#include "cola.c"
 
 int balanced_parenthesis(char* expr);
 void bfs(int** digraph, int vertices);
