@@ -1,13 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "pila.h"
-#include "cola.h"
+#include "cola.c"
 
 int balanced_parenthesis(char* expr);
 void bfs(int** graph);
 
-int main
-{
+int main()
+{   
+    //PRUEBA DE FUNCIONAMIENTO DE COLA
+    int elem1 = 1;
+    int elem2 = 2;
+    int elem3 = 3;
+    void* p1 = &elem1;
+    void* p2 = &elem2;
+    void* p3 = &elem3;
+
+    Cola* cola = crea_cola(crea_nodo_simple(p1));
+    queue(cola, p2);
+    queue(cola, p3);
+    
+    while (!cola_es_vacia(cola)){
+        printf("%d\n",*(int*)dequeue(cola));
+    }
+    //FIN DE PRUEBA DE FUNCIONAMIENTO DE COLA
+    
+    
     // Creación de casos de ejemplo
     // Prueba con dichos casos
     return 0;

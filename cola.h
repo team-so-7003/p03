@@ -33,7 +33,7 @@ int cola_es_vacia(Cola* cola);//Renombre porque causaba conflicto con el metodo 
  * param: cola - La estructura.
  * param: elem - El elemento a insertar.
  */
-void* queue(Cola* cola, void* elem);
+void queue(Cola* cola, void* elem);
 
 /**
  * Método que remueve un elemento de la cola.

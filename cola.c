@@ -21,7 +21,7 @@ Nodo_Ligado* crea_nodo_siguiente(void* elem, Nodo_Ligado* sig){
 Cola* crea_cola(Nodo_Ligado* cabeza){
     Cola* cola=malloc(sizeof(Cola));
     cola->primero = cabeza;
-    cola->ultimo = NULL;
+    cola->ultimo = cabeza;
     return cola;
 }
 /*
@@ -38,9 +38,8 @@ int cola_es_vacia(Cola* cola){
  * param: cola - La estructura.
  * param: elem - El elemento a insertar.
  */
-void* queue(Cola* cola, void* elem){
+void queue(Cola* cola, void* elem){
     Nodo_Ligado* nuevo= crea_nodo_simple(elem);
-	nuevo->siguiente=NULL; 
 	if (cola_es_vacia(cola)){
 		cola->primero=nuevo;
         cola->ultimo = nuevo;
@@ -49,6 +48,7 @@ void* queue(Cola* cola, void* elem){
         cola->ultimo->siguiente= nuevo;
         cola->ultimo = nuevo;
 	}
+    
 }
 
 /**
