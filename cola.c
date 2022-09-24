@@ -29,7 +29,7 @@ Cola* crea_cola(Nodo_Ligado* cabeza){
  * param: cola - Una cola con apuntador a vacío. 
  * return: valores booleanos en representación binaria.
  */
-int es_vacia(Cola* cola){
+int cola_es_vacia(Cola* cola){
     return cola->primero==NULL;
 }
 
@@ -41,7 +41,7 @@ int es_vacia(Cola* cola){
 void* queue(Cola* cola, void* elem){
     Nodo_Ligado* nuevo= crea_nodo_simple(elem);
 	nuevo->siguiente=NULL; 
-	if (es_vacia(cola)){
+	if (cola_es_vacia(cola)){
 		cola->primero=nuevo;
         cola->ultimo = nuevo;
 	}
@@ -56,7 +56,7 @@ void* queue(Cola* cola, void* elem){
  * param: cola - la EDD a utilizar.
  */
 void* dequeue(Cola* cola){
-    if (!es_vacia(cola)){
+    if (!cola_es_vacia(cola)){
         void* dato = cola->primero->elemento;
         Nodo_Ligado* nodo_aux= cola->primero;
         cola->primero=nodo_aux->siguiente;

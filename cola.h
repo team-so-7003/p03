@@ -26,7 +26,7 @@ Cola* crea_cola(Nodo_Ligado* cabeza);
  * param: cola - Una cola con apuntador a vacío. 
  * return: valores booleanos en representación binaria.
  */
-int es_vacia(Cola* cola);
+int cola_es_vacia(Cola* cola);//Renombre porque causaba conflicto con el metodo es_vacia de pila
 
 /**
  * Método que realiza un incersión en la cola. 
