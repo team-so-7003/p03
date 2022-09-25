@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include "pila.h"
+#include <string.h>
+#include "pila.h"
 #include "cola.h"
 #include "cola.c"
 
@@ -26,6 +27,22 @@ int main()
     matrix[6][3] = 1;
     // Prueba con dichos casos
     bfs(matrix, 7);
+
+    char formula1[] = "1/[(3)*(5)+7]";
+    char formula2[] = "5*(1)+(3)}";
+
+    if (balanced_parenthesis(formula1)){
+        printf("La formula %s Esta balanceada!\n",formula1);
+    }else{
+         printf("La formula %s No esta balanceada!\n",formula1);
+    }
+    if (balanced_parenthesis(formula2)){
+        printf("La formula %s Esta balanceada!\n",formula2);
+    }else{
+         printf("La formula %s No esta balanceada!\n",formula2);
+    }
+    
+
     return 0;
 }
 
@@ -35,10 +52,42 @@ int main()
  * @param expr Una expresión de paréntesis a realizar
  * @return 0 si no hay balance, 1 e.o.c.
  */
-int balanced_parenthesis(char* expr)
-{
-    // TODO: Impl
-    return -1;
+int balanced_parenthesis(char* expr){
+    //printf("%s",expr);
+    Pila* pila = crea_pila(strlen(expr));
+    int f;
+    for (f=0;f<strlen(expr);f++){
+        if (expr[f]=='(' || expr[f]=='[' || expr[f]=='{'){
+            push(pila,  expr[f]);
+        }
+        else{
+            if (expr[f]==')'){
+                if (pop(pila)!='('){
+                    return 0;
+                }
+            }
+            else{
+                if (expr[f]==']'){
+                    if (pop(pila)!='['){
+                        return 0;
+                    }
+                }
+                else{
+                    if (expr[f]=='}'){
+                        if (pop(pila)!='{'){
+                            return 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if (es_vacia(pila)){
+        return 1;
+    }
+    else{
+        return 0;
+    }
 }
 
 /**

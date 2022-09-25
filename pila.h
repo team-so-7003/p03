@@ -45,12 +45,13 @@ int es_vacia(Pila* pila){
 /* Método que expulsa el primer elemento de la pila.
  * param: pila - el apuntador a una pila.
  */
-void pop(Pila* pila){
+char pop(Pila* pila){
   if(es_vacia(pila)){
-    printf("La pila esta vacia\n");
+    //printf("La pila esta vacia\n");
   }else{  
-    pila->arreglo[pila->cabeza--];
-    printf("se saco el tope de la pila\n");
+    char elem = pila->arreglo[pila->cabeza--]; //Le agregue para que pueda retornar el elemento
+    //printf("se saco el tope de la pila\n");
+    return elem;
   }
 }
 
@@ -61,10 +62,10 @@ void pop(Pila* pila){
  */
 void push(Pila* pila, char elem){
   if(es_llena(pila)){
-    printf("La pila esta llena\n");
+    //printf("La pila esta llena\n");
   }else{
     pila->arreglo[++pila->cabeza] = elem;
-    printf("Se agrego el elemento\n");
+    //printf("Se agrego el elemento\n");
   }
 }
 
